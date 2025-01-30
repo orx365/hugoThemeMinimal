@@ -1,0 +1,32 @@
+{{ define "main" }}
+<article>
+    <div class="title-block">
+        <time class="post-date">{{ .Date.Format "January 2, 2006" }}</time>
+        <h1>{{ .Title }}</h1>
+        {{ if .Site.Params.showTags }}
+            {{ with .Params.tags }}
+                <div>{{ range . }}
+                    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+                    {{ end }}
+                </div>
+            {{ end }}
+        {{ end }}
+    </div>
+
+    {{ .Content }}
+    <!-- Inline Metadata -->
+    <script type="application/ld+json">
+        {
+          "@context": "{{ .Site.Params.baseURL }}",
+          "@type": "Article",
+          "headline": "{{ .Title }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ .Site.Params.author.name }}"
+          },
+          "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+          "mainEntityOfPage": "{{ .Permalink }}"
+        }
+    </script>
+</article>
+{{ end }}

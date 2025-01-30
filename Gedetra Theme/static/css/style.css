@@ -1,0 +1,264 @@
+/* static/css/style.css */
+:root {
+    /* Light mode colors */
+    --background: #fff;
+    --text: #000;
+    --muted: #666;
+    --footer: #f9f9f9;
+    --border: #ddd;
+    --link: #0066b2;
+    --accent-Color: var(--text);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Dark mode colors */
+        --background: #000;
+        --text: #fff;
+        --muted: #888;
+
+        --border: #333;
+        --link: #66b3ff;
+        --accent-Color: var(--muted);
+        p {
+            opacity: 0.8;
+        }
+    }
+}
+@media (max-width: 600px) {
+    /* Footer collapse on small screens */
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    footer a {
+        margin-right: 0; /* Remove margin to align vertically */
+    }
+
+    /* Post links aligned below the dates on small screens */
+    .posts article {
+        display: flex;
+        flex-direction: column;
+        margin: 0.8em 0;
+    }
+
+    .post-date {
+        margin-bottom: 0em;
+    }
+}
+
+body {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family:
+        system-ui,
+        IBM Plex Sans,
+        -apple-system,
+        sans-serif;
+    line-height: 1.7;
+    background: var(--background);
+    color: var(--text);
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* Fix link colors */ {
+    margin-bottom: 100px;
+}
+
+/* Fix link colors */
+a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+p a {
+    color: var(--link);
+}
+p a:hover {
+    color: var(--link);
+    text-decoration: underline;
+    filter: brightness(0.8);
+}
+a:hover {
+    color: var(--link);
+    filter: brightness(0.9);
+}
+
+.tag {
+
+    display: inline-block;
+    border: 1px solid var(--link); /* Outline color */
+    border-radius: 9999px; /* Makes it fully rounded */
+    padding: 0.1em 0.8em; /* Adjust padding as needed */
+    color: var(--link); /* Text color matches outline */
+    font-size: 0.7rem; /* Adjust text size as needed */
+
+}
+
+/*Navigation bar */
+nav {
+    margin-bottom: 100px;
+}
+nav a {
+    margin-right: 20px;
+    font-size: 1em;
+}
+
+h1 {
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+.title-block {
+   margin-bottom: 40px;
+}
+
+.bio {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 60px;
+}
+
+.posts article {
+    margin: 0.8em 0;
+}
+
+.post-date {
+    color: var(--muted);
+    display: inline-block;
+    width: 150px;
+    margin-right: 20px;
+}
+/* Footer */
+footer {
+    margin-top: 100px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+}
+footer p {
+    margin-top: 20px;
+    color: var(--muted);
+}
+footer a {
+    margin-right: 2em;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+.buyMeACoffee:hover {
+    color: orange;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 2px solid;
+    border-color: var(--accent-Color);
+    margin-inline: 1.2em;
+}
+blockquote p {
+    margin: 1em;
+}
+
+/* Callouts  */
+.callout {
+    font-size: 90%;
+    margin: 1.5em 0;
+    padding: 1em 1.25em;
+    border-radius: 6px;
+    border: 1px solid var(--link);
+    background-color: color-mix(in srgb, var(--background) 92%, var(--link) 10%);
+
+}
+
+.callout-title {
+    font-weight: 600;
+    margin-bottom: 0.5em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: var(--link);
+}
+
+.callout-content {
+    color: var(--link);
+}
+
+/* Table  */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 90%;
+}
+
+th {
+  font-weight: bold;
+  text-align: left;
+  padding: 0.5rem;
+  padding-right: 2rem;
+}
+
+td {
+  padding: 0.5rem;
+  opacity: 0.8;
+
+}
+
+tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+
+/* Image captions */
+.image-container {
+    max-width: 100%;
+    max-height: 100%;
+}
+img {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}
+
+.image-caption {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 0em;
+}
+
+.error-page h1 {
+    font-size: 6em;
+    margin: 0;
+}
+
+.error-page h2 {
+    color: var(--muted);
+    margin-bottom: 1em;
+}
+.increased {
+    margin-right: 2em;
+    text-indent: -20px;
+}
+
+code {
+    padding: 0.2em 0.4em;
+    border-radius: 5px;
+}
+
+/* Indented code block */
+pre {
+    background-color: color-mix(in srgb, var(--text) 5%, var(--background) 90%);
+    border: 1px solid var(--text);
+    padding: 1em;
+    border-radius: 5px;
+    overflow-x: auto;
+}

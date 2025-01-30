@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Favicon metadata & Image header !!! Create them not included-->
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+        <link rel="manifest" href="/favicons/site.webmanifest">
+
+
+        <meta property="og:image" content="{{ with .Params.image }}{{ . }}{{ else }}/favicons/logo.png{{ end }}">
+        <meta property="og:image:width" content="1200"> <!-- Optional: recommended width -->
+        <meta property="og:image:height" content="630"> <!-- Optional: recommended height -->
+        <meta property="og:image:alt" content="gedetra.com logo and icon">
+
+        <!-- SEO Metadata -->
+        <!-- Authorship metadata -->
+        <meta name="author" content="{{ .Site.Params.author.name }}">
+        <meta property="og:title" content="{{ .Title }}">
+        <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+        <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}">
+        <meta name="robots" content="index, follow">
+        <!-- Open Graph Metadata -->
+
+        <meta property="og:description" content="{{ .Summary | plainify | truncate 160 }}">
+        <meta property="og:url" content="{{ .Permalink }}">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="{{ .Site.Title }}">
+        <meta name="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}">
+
+
+        <title>{{ .Site.Title }}</title>
+        <link rel="stylesheet" href="/css/style.css" />
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+        </style>
+
+
+        {{ if .Params.math }}
+          <!-- Lazy load KaTeX CSS only if .md header math = true -->
+          <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" as="style" onload="this.rel='stylesheet'">
+          <noscript>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+          </noscript>
+          <!-- Lazy load KaTeX JS -->
+          <script
+              defer
+              src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+          <script
+              defer
+              src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+              onload="renderMathInElement(document.body, {
+                  delimiters: [
+                      {left: '$$', right: '$$', display: true},
+                      {left: '$', right: '$', display: false}
+                  ]
+              });"></script>
+        {{ end }}
+    </head>
+    <body>
+        <nav>
+            <a href="/">home</a>
+            <a href="/posts">posts</a>
+            <a href="/about">about</a>
+        </nav>
+
+        <main>{{ block "main" . }}{{ end }}</main>
+
+        <footer>
+            <a href="https://www.buymeacoffee.com/" class="buyMeACoffee">↗ Buy Me a Coffee</a>
+            <a href="/index.xml"> ↗ RSS</a>
+            <a href="/source">↗ view source</a>
+            <p class="copyright">© {{ now.Format "2006" }} Author replace </p>
+        </footer>
+    </body>
+</html>

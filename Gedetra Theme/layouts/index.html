@@ -1,0 +1,14 @@
+{{ define "main" }}
+<h1>My Portfolio</h1>
+
+<div class="bio">{{ .Content }}</div>
+
+<div class="posts">
+    {{ range first 3 (where .Site.RegularPages "Section" "posts") }}
+    <article>
+        <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </article>
+    {{ end }}
+</div>
+{{ end }}

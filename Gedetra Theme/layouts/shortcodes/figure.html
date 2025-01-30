@@ -1,0 +1,9 @@
+<div class="image-container">
+    <img src="{{ .Get "src" }}" alt="{{ .Get "alt" }}" />
+    {{ with .Get "caption" }}
+    <p class="image-caption">{{ . }}</p>
+    {{ end }}
+    {{ with .Get "source" }}
+    <p class="image-caption">Source: {{ . }}</p>
+    {{ end }}
+</div>

@@ -1,0 +1,40 @@
+baseURL = 'baseURL'
+languageCode = 'en-us'
+title = 'title'
+Summary = "text"
+
+
+[menu]
+[[menu.main]]
+name = 'home'
+url = '/'
+weight = 1
+[[menu.main]]
+name = 'posts'
+url = '/posts'
+weight = 2
+[[menu.main]]
+name = 'about'
+url = '/about'
+weight = 3
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true # Allows HTML in markdown
+[markup.goldmark.extensions]
+typographer = true
+footnote = true
+table = true
+taskList = true
+strikethrough = true
+linkify = true
+definitionList = true
+
+
+[params] # Enable math support
+author.name = "Author" # Author name
+showTags = false
+
+[taxonomies]
+tag = "tags"
