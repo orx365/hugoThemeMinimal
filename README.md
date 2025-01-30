@@ -1,8 +1,10 @@
-# Personal Website
+# Minimal Hugo Website Theme
 
 This is the source code for a side project website.The website is built using **Hugo**, a fast and flexible static site generator.
 
 This theme is based on [Portfolio Starter Kit - Next.js Theme](https://vercel.com/templates/next.js/portfolio-starter-kit)
+
+This a sort of backup so any errors that are in here are propably not going to be fixed. 
 
 ## Features
 - **Simple, clean design** for displaying articles and blog posts.
